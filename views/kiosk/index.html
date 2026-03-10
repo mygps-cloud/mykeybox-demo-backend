@@ -86,17 +86,19 @@
         .car-vin { font-size: 11px; color: #777; font-family: MontserratRegular, sans-serif; margin-top: 2px; letter-spacing: 1px; }
         .car-color-label { font-size: 13px; color: #aaa; font-family: MontserratRegular, sans-serif; white-space: nowrap; }
 
-        /* On-screen keyboard */
-        .osk { display: none; width: 100%; max-width: 800px; background: rgba(20,20,20,0.95); border-radius: 14px; padding: 10px; margin-bottom: 6px; border: 1px solid #333; }
-        .osk.visible { display: block; }
-        .osk-letters { margin-bottom: 8px; }
-        .osk-numbers { border-top: 2px solid #444; padding-top: 8px; }
-        .osk-row { display: flex; justify-content: center; gap: 5px; margin-bottom: 5px; }
-        .osk-key { min-width: 52px; height: 48px; border-radius: 10px; background: #363636; color: white; font-size: 24px; font-family: Montserrat, sans-serif; display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; padding: 0 6px; transition: background 0.15s; }
+        /* On-screen keyboard — letters left, numpad right */
+        .osk { display: none; width: 100%; max-width: 900px; background: rgba(20,20,20,0.95); border-radius: 14px; padding: 10px; margin-bottom: 6px; border: 1px solid #333; }
+        .osk.visible { display: flex; gap: 10px; }
+        .osk-letters { flex: 1; }
+        .osk-numpad { border-left: 2px solid #444; padding-left: 10px; display: flex; flex-wrap: wrap; width: 200px; gap: 5px; align-content: flex-start; }
+        .osk-row { display: flex; justify-content: center; gap: 4px; margin-bottom: 4px; }
+        .osk-key { min-width: 48px; height: 44px; border-radius: 10px; background: #363636; color: white; font-size: 22px; font-family: Montserrat, sans-serif; display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; padding: 0 5px; transition: background 0.15s; }
         .osk-key:active { background: var(--color-main); color: var(--color-dark); }
-        .osk-key.wide { min-width: 90px; font-size: 18px; }
-        .osk-key.space { flex: 1; max-width: 240px; font-size: 18px; }
-        .osk-key.num { background: #2a2a2a; min-width: 56px; height: 50px; font-size: 28px; font-family: Prompt, sans-serif; }
+        .osk-key.wide { min-width: 80px; font-size: 16px; }
+        .osk-key.space { flex: 1; max-width: 200px; font-size: 16px; }
+        .osk-num { width: 58px; height: 58px; border-radius: 12px; background: #363636; color: white; font-size: 32px; font-family: Prompt, sans-serif; display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; transition: background 0.15s; }
+        .osk-num:active { background: var(--color-main); color: var(--color-dark); }
+        .osk-num.del-key { background: #A9A9A9; font-size: 16px; font-family: Montserrat, sans-serif; color: var(--color-dark); }
 
         /* ── CONFIRM SCREEN ── */
         #confirm-screen { padding: 130px 40px 30px; justify-content: flex-start; }
@@ -200,17 +202,19 @@
                     <button class="osk-key" onclick="oskKey('A')">A</button><button class="osk-key" onclick="oskKey('S')">S</button><button class="osk-key" onclick="oskKey('D')">D</button><button class="osk-key" onclick="oskKey('F')">F</button><button class="osk-key" onclick="oskKey('G')">G</button><button class="osk-key" onclick="oskKey('H')">H</button><button class="osk-key" onclick="oskKey('J')">J</button><button class="osk-key" onclick="oskKey('K')">K</button><button class="osk-key" onclick="oskKey('L')">L</button>
                 </div>
                 <div class="osk-row">
-                    <button class="osk-key" onclick="oskKey('Z')">Z</button><button class="osk-key" onclick="oskKey('X')">X</button><button class="osk-key" onclick="oskKey('C')">C</button><button class="osk-key" onclick="oskKey('V')">V</button><button class="osk-key" onclick="oskKey('B')">B</button><button class="osk-key" onclick="oskKey('N')">N</button><button class="osk-key" onclick="oskKey('M')">M</button><button class="osk-key wide" onclick="oskBackspace()">DEL</button>
+                    <button class="osk-key" onclick="oskKey('Z')">Z</button><button class="osk-key" onclick="oskKey('X')">X</button><button class="osk-key" onclick="oskKey('C')">C</button><button class="osk-key" onclick="oskKey('V')">V</button><button class="osk-key" onclick="oskKey('B')">B</button><button class="osk-key" onclick="oskKey('N')">N</button><button class="osk-key" onclick="oskKey('M')">M</button>
                 </div>
                 <div class="osk-row">
+                    <button class="osk-key wide" onclick="oskBackspace()">DEL</button>
                     <button class="osk-key space" onclick="oskKey(' ')">SPACE</button>
                     <button class="osk-key wide" onclick="toggleOSK()">CLOSE</button>
                 </div>
             </div>
-            <div class="osk-numbers">
-                <div class="osk-row">
-                    <button class="osk-key num" onclick="oskKey('1')">1</button><button class="osk-key num" onclick="oskKey('2')">2</button><button class="osk-key num" onclick="oskKey('3')">3</button><button class="osk-key num" onclick="oskKey('4')">4</button><button class="osk-key num" onclick="oskKey('5')">5</button><button class="osk-key num" onclick="oskKey('6')">6</button><button class="osk-key num" onclick="oskKey('7')">7</button><button class="osk-key num" onclick="oskKey('8')">8</button><button class="osk-key num" onclick="oskKey('9')">9</button><button class="osk-key num" onclick="oskKey('0')">0</button>
-                </div>
+            <div class="osk-numpad">
+                <button class="osk-num" onclick="oskKey('1')">1</button><button class="osk-num" onclick="oskKey('2')">2</button><button class="osk-num" onclick="oskKey('3')">3</button>
+                <button class="osk-num" onclick="oskKey('4')">4</button><button class="osk-num" onclick="oskKey('5')">5</button><button class="osk-num" onclick="oskKey('6')">6</button>
+                <button class="osk-num" onclick="oskKey('7')">7</button><button class="osk-num" onclick="oskKey('8')">8</button><button class="osk-num" onclick="oskKey('9')">9</button>
+                <button class="osk-num del-key" onclick="oskBackspace()">DEL</button><button class="osk-num" onclick="oskKey('0')">0</button><button class="osk-num del-key" onclick="clearSearch()">CLR</button>
             </div>
         </div>
         <div class="car-list" id="car-list"></div>
