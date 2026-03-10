@@ -518,12 +518,11 @@
             document.getElementById('door-alert-vin').textContent = carVin ? `VIN: ${carVin}` : ''
 
             showScreen('door-screen')
-            let sec = 30; const t = document.getElementById('door-timer')
+            const t = document.getElementById('door-timer')
+            t.textContent = action === 'place' ? 'Close the door when done' : 'Close the door after taking the key'
             if (doorInterval) clearInterval(doorInterval)
             doorInterval = setInterval(async()=>{
-                sec--; t.textContent=`Door closes in ${sec}s`
                 try { const r=await fetch(API+'/door-states');const d=await r.json();if(d.states[doorNum-1]){clearInterval(doorInterval);showDoneScreen(action);return} } catch{}
-                if(sec<=0){clearInterval(doorInterval);showDoneScreen(action)}
             },1000)
         }
 
