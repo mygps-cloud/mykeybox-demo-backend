@@ -34,87 +34,52 @@
         .screen { display: none; height: 100vh; flex-direction: column; align-items: center; justify-content: center; position: relative; }
         .screen.active { display: flex; }
 
-        /* ── WELCOME (exact production copy) ── */
+        /* ── WELCOME ── */
         #welcome { cursor: pointer; }
-
         .logo-img { position: absolute; top: 5px; left: 10px; height: 120px; z-index: 100; }
-
         .unique-code { position: absolute; z-index: 100000; top: 5px; right: 10px; font-family: RussoOne, sans-serif; font-size: 25px; }
         .unique-code .code-title { color: white; }
         .unique-code .code { color: var(--color-main); }
-
         .homepage .welcome-text { margin-top: 70px; font-size: 70px; color: white; text-align: center; font-family: Montserrat, sans-serif; }
         .homepage .mykeybox-text { font-size: 170px; color: var(--color-main); text-align: center; font-family: RussoOne, sans-serif; }
         .homepage .press-to-start {
-            color: var(--color-dark);
-            background-color: var(--color-main);
-            border-radius: 34px;
-            font-size: 50px;
-            padding: 28px 48px;
-            margin-top: 70px;
-            font-family: Montserrat, sans-serif;
-            border: none;
-            cursor: pointer;
+            color: var(--color-dark); background-color: var(--color-main); border-radius: 34px;
+            font-size: 50px; padding: 28px 48px; margin-top: 70px; font-family: Montserrat, sans-serif; border: none; cursor: pointer;
         }
         .homepage .version { font-size: 12px; color: #555; margin-top: 20px; font-family: MontserratRegular, sans-serif; }
 
-        /* Door status grid (exact production) */
+        /* Door status grid */
         .door-status { position: absolute; left: 14px; bottom: 30px; z-index: 1000; background: rgba(30, 30, 30, 0.85); border-radius: 12px; padding: 10px 12px; border: 1px solid rgba(255, 255, 255, 0.1); }
         .door-status-header { color: #FEDC01; font-size: 12px; text-align: center; margin-bottom: 8px; letter-spacing: 2px; font-family: Montserrat, sans-serif; }
         .door-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; }
         .door-cell { width: 38px; height: 34px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; border: 2px solid transparent; font-family: Montserrat, sans-serif; }
         .door-cell.free { background: rgba(254, 220, 1, 0.12); border-color: rgba(254, 220, 1, 0.6); color: #FEDC01; }
         .door-cell.busy { background: rgba(82, 254, 1, 0.1); border-color: rgba(82, 254, 1, 0.6); color: #52FE01; }
-        .door-cell.open { background: rgba(254, 1, 1, 0.15); border-color: rgba(254, 1, 1, 0.6); color: #FE0101; }
 
-        /* ── CODE SCREEN (matches production CodeView.vue) ── */
+        /* ── CODE SCREEN ── */
         #code-screen .enter-code-text { margin-top: 10px; text-align: center; }
         #code-screen .enter-code-text .color-white { color: white; font-size: 30px; font-family: Montserrat, sans-serif; }
         #code-screen .enter-code-text .color-main { color: var(--color-main); font-size: 30px; font-family: Montserrat, sans-serif; }
-
         .title-logo { font-family: RussoOne, sans-serif; color: var(--color-main); font-size: 40px; text-align: center; margin-bottom: 5px; }
-
         .code-container { position: relative; margin-top: 10px; }
         .code-wrapper { display: flex; justify-content: center; align-items: center; }
         .code-wrapper span.dash { font-size: 35px; color: white; margin: 0 10px; font-family: Prompt, sans-serif; line-height: 60px; }
         .code-wrapper input {
-            pointer-events: none;
-            width: 60px; height: 60px;
-            background-color: #363636;
-            border-radius: 12px;
-            color: white;
-            border: 3px solid rgba(0, 0, 0, 0);
-            font-size: 40px;
-            margin: 4px;
-            text-align: center;
-            font-family: Prompt, sans-serif;
-            transition: all 0.3s;
-            outline: none;
+            pointer-events: none; width: 60px; height: 60px; background-color: #363636; border-radius: 12px;
+            color: white; border: 3px solid rgba(0, 0, 0, 0); font-size: 40px; margin: 4px;
+            text-align: center; font-family: Prompt, sans-serif; transition: all 0.3s; outline: none;
         }
         .code-wrapper input.filled { border-color: var(--color-main); }
         .code-wrapper input.invalid { border-color: #FE0101 !important; }
         .code-wrapper input.valid { border-color: #52FE01 !important; }
-
         .message { height: 55px; font-size: 30px; text-align: center; font-family: Montserrat, sans-serif; }
         .message .invalid-msg { color: #FE0101; }
         .message .valid-msg { color: #52FE01; }
-
         .keyboard { display: flex; flex-wrap: wrap; width: 440px; margin: auto; justify-content: center; }
         .keyboard div {
-            flex: calc(31% - 5px);
-            margin: 5px;
-            border-radius: 13px;
-            font-size: 50px;
-            text-align: center;
-            height: 70px;
-            background-color: #363636;
-            color: white;
-            padding: 8px 8px;
-            line-height: 60px;
-            min-width: 110px;
-            max-width: 110px;
-            font-family: Montserrat, sans-serif;
-            transition: all 0.3s;
+            flex: calc(31% - 5px); margin: 5px; border-radius: 13px; font-size: 50px; text-align: center;
+            height: 70px; background-color: #363636; color: white; padding: 8px 8px; line-height: 60px;
+            min-width: 110px; max-width: 110px; font-family: Montserrat, sans-serif; transition: all 0.3s;
             -webkit-tap-highlight-color: transparent;
         }
         .keyboard div.type-key { font-size: 45px; }
@@ -122,20 +87,63 @@
         .keyboard div.enter-key { background-color: var(--color-main); line-height: 1; display: flex; align-items: center; justify-content: center; }
         .keyboard div.delete-key { line-height: 1; background-color: #A9A9A9; display: flex; align-items: center; justify-content: center; }
         .keyboard div.disabled { opacity: 0.2; pointer-events: none; }
-
         .try-again-btn {
-            color: var(--color-dark);
-            background-color: var(--color-main);
-            border-radius: 24px;
-            font-size: 28px;
-            padding: 18px 48px;
-            margin-top: 100px;
-            font-family: Montserrat, sans-serif;
-            border: none;
+            color: var(--color-dark); background-color: var(--color-main); border-radius: 24px;
+            font-size: 28px; padding: 18px 48px; margin-top: 100px; font-family: Montserrat, sans-serif; border: none;
         }
-
-        /* Back button */
         .back-btn-circle { position: absolute; top: 20px; left: 20px; z-index: 100; cursor: pointer; }
+
+        /* ── CAR SELECT SCREEN ── */
+        #car-screen { padding: 130px 40px 30px; justify-content: flex-start; }
+        .car-screen-title { font-size: 28px; color: white; font-family: Montserrat, sans-serif; margin-bottom: 12px; }
+        .car-screen-code { font-size: 18px; color: var(--color-main); font-family: Montserrat, sans-serif; margin-bottom: 16px; }
+        .car-search {
+            width: 100%; max-width: 700px; padding: 14px 20px; border-radius: 12px; border: 2px solid #363636;
+            background: rgba(30, 30, 30, 0.9); color: white; font-size: 20px; font-family: MontserratRegular, sans-serif;
+            outline: none; margin-bottom: 14px; transition: border-color 0.3s;
+        }
+        .car-search:focus { border-color: var(--color-main); }
+        .car-search::placeholder { color: #666; }
+        .car-list { width: 100%; max-width: 700px; flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-bottom: 10px; }
+        .car-list::-webkit-scrollbar { width: 6px; }
+        .car-list::-webkit-scrollbar-track { background: transparent; }
+        .car-list::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+        .car-card {
+            display: flex; align-items: center; gap: 14px; padding: 14px 18px; border: 2px solid #363636;
+            background: rgba(30, 30, 30, 0.85); border-radius: 14px; cursor: pointer; transition: border-color 0.3s;
+        }
+        .car-card:hover, .car-card:active { border-color: var(--color-main); }
+        .car-color-dot {
+            width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .car-info { flex: 1; }
+        .car-name { font-size: 18px; color: white; font-family: Montserrat, sans-serif; }
+        .car-vin { font-size: 13px; color: #888; font-family: MontserratRegular, sans-serif; margin-top: 3px; letter-spacing: 1px; }
+        .car-detail { font-size: 13px; color: #666; font-family: MontserratRegular, sans-serif; margin-top: 2px; }
+        .car-color-label { font-size: 14px; color: #aaa; font-family: MontserratRegular, sans-serif; }
+
+        /* ── DOOR SELECT SCREEN ── */
+        #door-select-screen { padding: 130px 40px 30px; justify-content: flex-start; }
+        .door-select-title { font-size: 28px; color: white; font-family: Montserrat, sans-serif; margin-bottom: 8px; }
+        .door-select-car { font-size: 16px; color: var(--color-main); font-family: Montserrat, sans-serif; margin-bottom: 24px; }
+        .door-select-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; max-width: 500px; }
+        .door-select-card {
+            padding: 28px 20px; border: 3px solid #363636; background: rgba(30, 30, 30, 0.85);
+            border-radius: 18px; cursor: pointer; transition: all 0.3s; text-align: center;
+        }
+        .door-select-card:hover { border-color: var(--color-main); }
+        .door-select-card.occupied { opacity: 0.3; pointer-events: none; }
+        .door-select-num { font-size: 48px; color: var(--color-main); font-family: RussoOne, sans-serif; margin-bottom: 8px; }
+        .door-select-status { font-size: 14px; font-family: Montserrat, sans-serif; }
+        .door-select-status.empty-st { color: #52FE01; }
+        .door-select-status.occupied-st { color: #FE0101; }
+        .door-select-car-info { font-size: 12px; color: #888; font-family: MontserratRegular, sans-serif; margin-top: 4px; }
+
+        .cancel-btn {
+            margin-top: 20px; padding: 14px 40px; background: none; border: 1px solid #444;
+            color: #888; border-radius: 10px; font-size: 16px; font-family: Montserrat, sans-serif;
+        }
 
         /* ── DOOR OPEN ── */
         .door-visual { width: 140px; height: 180px; border: 3px solid var(--color-main); border-radius: 10px; margin-bottom: 30px; animation: doorSwing 1.5s ease-in-out infinite; }
@@ -155,58 +163,38 @@
     <!-- WELCOME -->
     <div id="welcome" class="screen active homepage" onclick="showScreen('code-screen')">
         <img class="logo-img" src="assets/image/logo.png" alt="MyKeyBox">
-
-        <div class="unique-code">
-            <span class="code-title">Device: </span>
-            <span class="code" id="welcome-device">DEMO-1</span>
-        </div>
-
+        <div class="unique-code"><span class="code-title">Device: </span><span class="code" id="welcome-device">DEMO-1</span></div>
         <div class="welcome-text">Welcome to</div>
         <div class="mykeybox-text">MyKeyBox</div>
         <div style="display:flex;flex-direction:column;align-items:center;">
             <button class="press-to-start" onclick="event.stopPropagation(); showScreen('code-screen')">Press to start</button>
         </div>
-        <div class="version">version 1.0.0</div>
-
+        <div class="version">version 1.1.0</div>
         <div class="door-status" id="welcome-boxes" onclick="event.stopPropagation()"></div>
     </div>
 
-    <!-- CODE ENTRY (production style: C/S/D + 5 digits) -->
+    <!-- CODE ENTRY -->
     <div id="code-screen" class="screen">
         <div class="back-btn-circle" onclick="goHome()">
             <svg width="55" height="55" viewBox="0 0 55 55" fill="none"><circle cx="27.5" cy="27.5" r="25" stroke="#FEDC01" stroke-width="2"/><path d="M32 15L20 27.5L32 40" stroke="#FEDC01" stroke-width="3" stroke-linecap="round"/></svg>
         </div>
         <img class="logo-img" src="assets/image/logo.png" alt="MyKeyBox">
         <div class="unique-code"><span class="code-title">Device: </span><span class="code">DEMO-1</span></div>
-
         <div class="title-logo">MyKeyBox</div>
         <div class="enter-code-text">
             <span class="color-white">Please enter your </span>
             <span class="color-main">5 digit code</span>
         </div>
-
-        <div class="code-container">
-            <div class="code-wrapper" id="code-boxes"></div>
-        </div>
-
+        <div class="code-container"><div class="code-wrapper" id="code-boxes"></div></div>
         <div class="message" id="code-message"></div>
-
         <div id="code-keyboard">
             <div class="keyboard" id="numpad">
-                <!-- Type row: C, S, D -->
                 <div class="type-key" onclick="setType('C')" id="key-C">C</div>
                 <div class="type-key" onclick="setType('S')" id="key-S">S</div>
                 <div class="type-key" onclick="setType('D')" id="key-D">D</div>
-                <!-- Number rows -->
-                <div onclick="codePress('1')">1</div>
-                <div onclick="codePress('2')">2</div>
-                <div onclick="codePress('3')">3</div>
-                <div onclick="codePress('4')">4</div>
-                <div onclick="codePress('5')">5</div>
-                <div onclick="codePress('6')">6</div>
-                <div onclick="codePress('7')">7</div>
-                <div onclick="codePress('8')">8</div>
-                <div onclick="codePress('9')">9</div>
+                <div onclick="codePress('1')">1</div><div onclick="codePress('2')">2</div><div onclick="codePress('3')">3</div>
+                <div onclick="codePress('4')">4</div><div onclick="codePress('5')">5</div><div onclick="codePress('6')">6</div>
+                <div onclick="codePress('7')">7</div><div onclick="codePress('8')">8</div><div onclick="codePress('9')">9</div>
                 <div class="delete-key" onclick="codeBackspace()">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><g clip-path="url(#c1)"><path d="M26.67 13.33a1.67 1.67 0 00-2.36 0L20 17.64l-4.31-4.31a1.67 1.67 0 10-2.36 2.36L17.64 20l-4.31 4.31a1.67 1.67 0 102.36 2.36L20 22.36l4.31 4.31a1.67 1.67 0 102.36-2.36L22.36 20l4.31-4.31a1.67 1.67 0 000-2.36z" fill="#0D0D0D"/><path d="M20 0a20 20 0 100 40 20 20 0 000-40zm0 36.67a16.67 16.67 0 110-33.34 16.67 16.67 0 010 33.34z" fill="#0D0D0D"/></g><defs><clipPath id="c1"><rect width="40" height="40" fill="white"/></clipPath></defs></svg>
                 </div>
@@ -216,10 +204,34 @@
                 </div>
             </div>
         </div>
-
         <div id="code-tryagain" style="display:none;">
             <div style="display:flex;justify-content:center;"><button class="try-again-btn" onclick="codeReset()">Try again</button></div>
         </div>
+    </div>
+
+    <!-- CAR SELECT (Dealer only) -->
+    <div id="car-screen" class="screen">
+        <div class="back-btn-circle" onclick="showScreen('code-screen')">
+            <svg width="55" height="55" viewBox="0 0 55 55" fill="none"><circle cx="27.5" cy="27.5" r="25" stroke="#FEDC01" stroke-width="2"/><path d="M32 15L20 27.5L32 40" stroke="#FEDC01" stroke-width="3" stroke-linecap="round"/></svg>
+        </div>
+        <img class="logo-img" src="assets/image/logo.png" alt="MyKeyBox">
+        <div class="car-screen-title">Select Vehicle</div>
+        <div class="car-screen-code" id="car-screen-code"></div>
+        <input class="car-search" id="car-search" type="text" placeholder="Search by VIN, brand, model..." oninput="filterCars()">
+        <div class="car-list" id="car-list"></div>
+        <button class="cancel-btn" onclick="goHome()">CANCEL</button>
+    </div>
+
+    <!-- DOOR SELECT (Dealer only — after car selected) -->
+    <div id="door-select-screen" class="screen">
+        <div class="back-btn-circle" onclick="showScreen('car-screen')">
+            <svg width="55" height="55" viewBox="0 0 55 55" fill="none"><circle cx="27.5" cy="27.5" r="25" stroke="#FEDC01" stroke-width="2"/><path d="M32 15L20 27.5L32 40" stroke="#FEDC01" stroke-width="3" stroke-linecap="round"/></svg>
+        </div>
+        <img class="logo-img" src="assets/image/logo.png" alt="MyKeyBox">
+        <div class="door-select-title">Select Door</div>
+        <div class="door-select-car" id="door-select-car"></div>
+        <div class="door-select-grid" id="door-select-grid"></div>
+        <button class="cancel-btn" onclick="goHome()">CANCEL</button>
     </div>
 
     <!-- DOOR OPEN -->
@@ -241,51 +253,72 @@
 
     <script>
         const API = '/api/kiosk'
-        let selectedType = '', code = '', codeState = 'entry' // entry | invalid | valid
+        let selectedType = '', code = '', codeState = 'entry'
+        let selectedCar = null
         let inactivityTimer = null, doorInterval = null
+
+        // ── 20 Hardcoded Cars ─────────────────────
+        const CARS = [
+            { id: 1,  year: 2024, brand: 'Toyota',     model: 'Camry',           vin: '4T1BZ1HK5RU123456', color: 'White',  hex: '#FFFFFF' },
+            { id: 2,  year: 2024, brand: 'Honda',       model: 'Accord',          vin: '1HGCV2F34RA012345', color: 'Black',  hex: '#1A1A1A' },
+            { id: 3,  year: 2023, brand: 'Ford',        model: 'F-150',           vin: '1FTFW1E85NFA56789', color: 'Blue',   hex: '#1E3A8A' },
+            { id: 4,  year: 2024, brand: 'Chevrolet',   model: 'Silverado 1500',  vin: '3GCUYDED5RG234567', color: 'Red',    hex: '#DC2626' },
+            { id: 5,  year: 2023, brand: 'BMW',         model: 'X5 xDrive40i',    vin: '5UXCR6C09R9A12345', color: 'Silver', hex: '#C0C0C0' },
+            { id: 6,  year: 2024, brand: 'Mercedes',    model: 'C 300',           vin: 'W1KWF8DB3RR123456', color: 'Gray',   hex: '#6B7280' },
+            { id: 7,  year: 2023, brand: 'Tesla',       model: 'Model 3',         vin: '5YJ3E1EA9PF234567', color: 'White',  hex: '#F5F5F5' },
+            { id: 8,  year: 2024, brand: 'Toyota',      model: 'RAV4',            vin: '2T3P1RFV5RC345678', color: 'Blue',   hex: '#2563EB' },
+            { id: 9,  year: 2023, brand: 'Honda',       model: 'CR-V',            vin: '7FARS6H38RE456789', color: 'Green',  hex: '#166534' },
+            { id: 10, year: 2024, brand: 'Ford',        model: 'Mustang GT',      vin: '1FA6P8CF5R5567890', color: 'Yellow', hex: '#EAB308' },
+            { id: 11, year: 2023, brand: 'Hyundai',     model: 'Tucson',          vin: '5NMJFDAL9RH678901', color: 'Gray',   hex: '#9CA3AF' },
+            { id: 12, year: 2024, brand: 'Kia',         model: 'Telluride SX',    vin: '5XYP6DHC5RG789012', color: 'Black',  hex: '#171717' },
+            { id: 13, year: 2023, brand: 'Nissan',      model: 'Altima SR',       vin: '1N4BL4DV5RN890123', color: 'Red',    hex: '#B91C1C' },
+            { id: 14, year: 2024, brand: 'Jeep',        model: 'Grand Cherokee',  vin: '1C4RJKBG5R8901234', color: 'White',  hex: '#FAFAFA' },
+            { id: 15, year: 2023, brand: 'Subaru',      model: 'Outback',         vin: '4S4BTAPC9R3012345', color: 'Green',  hex: '#15803D' },
+            { id: 16, year: 2024, brand: 'Audi',        model: 'Q5 Premium',      vin: 'WA1BNAFY5R2123456', color: 'Blue',   hex: '#1D4ED8' },
+            { id: 17, year: 2023, brand: 'Lexus',       model: 'RX 350',          vin: '2T2HZMDA5RC234567', color: 'Silver', hex: '#D1D5DB' },
+            { id: 18, year: 2024, brand: 'Volkswagen',  model: 'Atlas SEL',       vin: '1V2NR2CA5RC345678', color: 'Brown',  hex: '#92400E' },
+            { id: 19, year: 2023, brand: 'Mazda',       model: 'CX-5 Turbo',      vin: 'JM3KFBCM9R0456789', color: 'Red',    hex: '#EF4444' },
+            { id: 20, year: 2024, brand: 'Dodge',       model: 'Charger R/T',     vin: '2C3CDXCT5RH567890', color: 'Orange', hex: '#EA580C' },
+        ]
 
         function showScreen(id) {
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'))
             document.getElementById(id).classList.add('active')
             resetInactivity()
             if (id === 'code-screen') {
-                selectedType = ''; code = ''; codeState = 'entry'
+                selectedType = ''; code = ''; codeState = 'entry'; selectedCar = null
                 renderCodeBoxes(); updateTypeKeys()
                 document.getElementById('code-message').innerHTML = ''
                 document.getElementById('code-keyboard').style.display = ''
                 document.getElementById('code-tryagain').style.display = 'none'
             }
+            if (id === 'car-screen') {
+                document.getElementById('car-screen-code').textContent = `Code: D-${code}`
+                document.getElementById('car-search').value = ''
+                renderCarList('')
+            }
             if (id === 'welcome') loadWelcomeStatus()
         }
-        function goHome() { selectedType = ''; code = ''; showScreen('welcome') }
+        function goHome() { selectedType = ''; code = ''; selectedCar = null; showScreen('welcome') }
         function resetInactivity() { clearTimeout(inactivityTimer); inactivityTimer = setTimeout(goHome, 90000) }
 
         // ── CODE ENTRY ────────────────────────────
         function renderCodeBoxes() {
             const w = document.getElementById('code-boxes')
             let html = ''
-
-            // Type box
-            let typeCls = ''
-            if (selectedType) typeCls = 'filled'
+            let typeCls = selectedType ? 'filled' : ''
             if (codeState === 'invalid') typeCls = 'invalid'
             if (codeState === 'valid') typeCls = 'valid'
             html += `<input class="${typeCls}" value="${selectedType}" readonly disabled />`
-
-            // Dash separator
             html += `<span class="dash">-</span>`
-
-            // 5 code boxes
             for (let i = 0; i < 5; i++) {
-                let cls = ''
-                if (i < code.length) cls = 'filled'
+                let cls = i < code.length ? 'filled' : ''
                 if (codeState === 'invalid') cls = 'invalid'
                 if (codeState === 'valid') cls = 'valid'
                 html += `<input class="${cls}" value="${i < code.length ? code[i] : ''}" readonly disabled />`
             }
             w.innerHTML = html
         }
-
         function updateTypeKeys() {
             ['C', 'S', 'D'].forEach(t => {
                 const el = document.getElementById('key-' + t)
@@ -293,36 +326,17 @@
                 else el.classList.remove('selected')
             })
         }
-
-        function setType(t) {
-            if (codeState !== 'entry') return
-            selectedType = t
-            renderCodeBoxes()
-            updateTypeKeys()
-        }
-
-        function codePress(d) {
-            if (code.length >= 5 || codeState !== 'entry') return
-            code += d; renderCodeBoxes()
-        }
-
+        function setType(t) { if (codeState !== 'entry') return; selectedType = t; renderCodeBoxes(); updateTypeKeys() }
+        function codePress(d) { if (code.length >= 5 || codeState !== 'entry') return; code += d; renderCodeBoxes() }
         function codeBackspace() {
             if (codeState !== 'entry') return
-            if (code.length > 0) {
-                code = code.slice(0, -1)
-            } else if (selectedType) {
-                selectedType = ''
-                updateTypeKeys()
-            }
+            if (code.length > 0) { code = code.slice(0, -1) }
+            else if (selectedType) { selectedType = ''; updateTypeKeys() }
             renderCodeBoxes()
         }
-
-        function codeSubmit() {
-            if (selectedType && code.length === 5 && codeState === 'entry') checkCode()
-        }
-
+        function codeSubmit() { if (selectedType && code.length === 5 && codeState === 'entry') checkCode() }
         function codeReset() {
-            selectedType = ''; code = ''; codeState = 'entry'
+            selectedType = ''; code = ''; codeState = 'entry'; selectedCar = null
             renderCodeBoxes(); updateTypeKeys()
             document.getElementById('code-message').innerHTML = ''
             document.getElementById('code-keyboard').style.display = ''
@@ -331,7 +345,7 @@
 
         async function checkCode() {
             try {
-                const res = await fetch(API + '/check-code', {
+                const res = await fetch(API + '/validate-code', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ type: selectedType, code })
@@ -339,13 +353,17 @@
                 const data = await res.json()
                 if (data.success) {
                     codeState = 'valid'; renderCodeBoxes()
-                    document.getElementById('code-message').innerHTML = '<span class="valid-msg">Code accepted!</span>'
-                    setTimeout(() => {
-                        const instruction = data.action === 'place'
-                            ? 'Place the key inside'
-                            : 'Take the key'
-                        showDoorScreen(`DOOR ${data.door_number} IS OPEN`, instruction, data.door_number, data.action)
-                    }, 800)
+                    if (data.action === 'place') {
+                        // Dealer — show car selection
+                        document.getElementById('code-message').innerHTML = '<span class="valid-msg">Code accepted!</span>'
+                        setTimeout(() => showScreen('car-screen'), 800)
+                    } else {
+                        // C/S — door already opened by backend
+                        document.getElementById('code-message').innerHTML = '<span class="valid-msg">Code accepted!</span>'
+                        setTimeout(() => {
+                            showDoorScreen(`DOOR ${data.door_number} IS OPEN`, 'Take the key', data.door_number, 'retrieve')
+                        }, 800)
+                    }
                 } else {
                     codeState = 'invalid'; renderCodeBoxes()
                     document.getElementById('code-message').innerHTML = `<span class="invalid-msg">${data.message}</span>`
@@ -360,6 +378,90 @@
             }
         }
 
+        // ── CAR SELECTION ─────────────────────────
+        function renderCarList(filter) {
+            const list = document.getElementById('car-list')
+            const f = filter.toLowerCase()
+            const filtered = CARS.filter(c =>
+                !f ||
+                c.vin.toLowerCase().includes(f) ||
+                c.brand.toLowerCase().includes(f) ||
+                c.model.toLowerCase().includes(f) ||
+                c.color.toLowerCase().includes(f) ||
+                String(c.year).includes(f)
+            )
+            list.innerHTML = filtered.map(c => `
+                <div class="car-card" onclick="selectCar(${c.id})">
+                    <div class="car-color-dot" style="background:${c.hex}"></div>
+                    <div class="car-info">
+                        <div class="car-name">${c.year} ${c.brand} ${c.model}</div>
+                        <div class="car-vin">${c.vin}</div>
+                    </div>
+                    <div class="car-color-label">${c.color}</div>
+                </div>
+            `).join('')
+            if (!filtered.length) {
+                list.innerHTML = '<div style="color:#666;text-align:center;padding:40px;font-family:MontserratRegular,sans-serif;font-size:18px;">No vehicles found</div>'
+            }
+        }
+        function filterCars() {
+            renderCarList(document.getElementById('car-search').value)
+            resetInactivity()
+        }
+        function selectCar(id) {
+            selectedCar = CARS.find(c => c.id === id)
+            if (!selectedCar) return
+            showDoorSelectScreen()
+        }
+
+        // ── DOOR SELECTION ────────────────────────
+        async function showDoorSelectScreen() {
+            document.getElementById('door-select-car').textContent =
+                `${selectedCar.year} ${selectedCar.brand} ${selectedCar.model} — ${selectedCar.color}`
+
+            // Fetch current door states
+            try {
+                const res = await fetch(API + '/slots')
+                const data = await res.json()
+                const grid = document.getElementById('door-select-grid')
+                grid.innerHTML = data.slots.map(s => {
+                    const isOccupied = s.status === 'occupied'
+                    return `
+                        <div class="door-select-card ${isOccupied ? 'occupied' : ''}" onclick="${isOccupied ? '' : `selectDoor(${s.door_number})`}">
+                            <div class="door-select-num">${s.door_number}</div>
+                            <div class="door-select-status ${isOccupied ? 'occupied-st' : 'empty-st'}">${isOccupied ? 'OCCUPIED' : 'EMPTY'}</div>
+                            ${isOccupied ? `<div class="door-select-car-info">${s.label || ''}</div>` : ''}
+                        </div>
+                    `
+                }).join('')
+            } catch {
+                document.getElementById('door-select-grid').innerHTML = '<div style="color:#FE0101;font-family:Montserrat">Connection error</div>'
+            }
+            showScreen('door-select-screen')
+        }
+
+        async function selectDoor(doorNum) {
+            try {
+                const carLabel = `${selectedCar.year} ${selectedCar.brand} ${selectedCar.model}`
+                const res = await fetch(API + '/place-key', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        code,
+                        door_number: doorNum,
+                        car_label: carLabel,
+                        car_vin: selectedCar.vin
+                    })
+                })
+                const data = await res.json()
+                if (data.success) {
+                    showDoorScreen(`DOOR ${doorNum} IS OPEN`, 'Place the key inside', doorNum, 'place')
+                } else {
+                    alert(data.message || 'Failed to place key')
+                }
+            } catch { alert('Connection error') }
+        }
+
         // ── Welcome Status ─────────────────────
         async function loadWelcomeStatus() {
             try {
@@ -369,8 +471,7 @@
                 if (!data.slots.length) { el.innerHTML = ''; return }
                 let html = '<div class="door-status-header">BOXES</div><div class="door-grid">'
                 data.slots.forEach(s => {
-                    let cls = 'free'
-                    if (s.status === 'occupied') cls = 'busy'
+                    let cls = s.status === 'occupied' ? 'busy' : 'free'
                     html += `<div class="door-cell ${cls}">${s.door_number}</div>`
                 })
                 html += '</div>'
@@ -391,7 +492,6 @@
                 try {
                     const r = await fetch(API + '/door-states')
                     const d = await r.json()
-                    // Door closed (state = true means locked/closed in simulator)
                     if (d.states[doorNum - 1]) { clearInterval(doorInterval); showDoneScreen(action); return }
                 } catch {}
                 if (sec <= 0) { clearInterval(doorInterval); showDoneScreen(action) }
@@ -399,12 +499,11 @@
         }
 
         function showDoneScreen(action) {
-            const labels = {
-                place: 'Key placed successfully',
-                retrieve: 'Key retrieved successfully'
-            }
+            const labels = { place: 'Key placed successfully', retrieve: 'Key retrieved successfully' }
             document.getElementById('done-message').textContent = labels[action] || 'Done'
-            document.getElementById('done-details').innerHTML = `${selectedType}-${code}<br>${new Date().toLocaleTimeString()}`
+            const carInfo = selectedCar ? `${selectedCar.year} ${selectedCar.brand} ${selectedCar.model}` : ''
+            document.getElementById('done-details').innerHTML =
+                `${selectedType}-${code}${carInfo ? '<br>' + carInfo : ''}<br>${new Date().toLocaleTimeString()}`
             showScreen('done-screen')
             setTimeout(goHome, 5000)
         }
