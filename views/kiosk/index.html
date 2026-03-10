@@ -38,6 +38,8 @@
         .door-cell { width: 38px; height: 34px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; border: 2px solid transparent; font-family: Montserrat, sans-serif; }
         .door-cell.free { background: rgba(254,220,1,0.12); border-color: rgba(254,220,1,0.6); color: #FEDC01; }
         .door-cell.busy { background: rgba(82,254,1,0.1); border-color: rgba(82,254,1,0.6); color: #52FE01; }
+        .door-cell.open { background: rgba(239,68,68,0.2); border-color: rgba(239,68,68,0.8); color: #EF4444; animation: doorPulse 1s ease-in-out infinite; }
+        @keyframes doorPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
 
         /* ── CODE SCREEN ── */
         #code-screen .enter-code-text { margin-top: 10px; text-align: center; }
@@ -461,11 +463,17 @@
         // ── Welcome Status ──
         async function loadWelcomeStatus() {
             try {
-                const res = await fetch(API+'/slots'); const data = await res.json()
+                const [slotsRes, statesRes] = await Promise.all([fetch(API+'/slots'), fetch(API+'/door-states')])
+                const data = await slotsRes.json()
+                const hw = await statesRes.json()
                 const el = document.getElementById('welcome-boxes')
                 if (!data.slots.length) { el.innerHTML=''; return }
                 let html = '<div class="door-status-header">BOXES</div><div class="door-grid">'
-                data.slots.forEach(s => { html += `<div class="door-cell ${s.status==='occupied'?'busy':'free'}">${s.door_number}</div>` })
+                data.slots.forEach(s => {
+                    const isClosed = hw.states ? hw.states[s.door_number - 1] : true
+                    const cls = !isClosed ? 'open' : (s.status === 'occupied' ? 'busy' : 'free')
+                    html += `<div class="door-cell ${cls}">${s.door_number}</div>`
+                })
                 el.innerHTML = html + '</div>'
             } catch {}
         }
@@ -494,7 +502,7 @@
             showScreen('done-screen'); setTimeout(goHome, 5000)
         }
 
-        loadWelcomeStatus(); setInterval(loadWelcomeStatus, 5000)
+        loadWelcomeStatus(); setInterval(loadWelcomeStatus, 2000)
     </script>
 </body>
 </html>
