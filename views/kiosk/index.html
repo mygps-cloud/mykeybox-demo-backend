@@ -17,8 +17,10 @@
             color: var(--color-main); font-family: Inter, -apple-system, sans-serif;
             font-size: 15px; font-weight: bold; user-select: none; cursor: none;
             overflow: hidden; -webkit-font-smoothing: antialiased;
+            overscroll-behavior: none; touch-action: manipulation;
         }
-        * { -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
+        html { overscroll-behavior: none; }
+        * { -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); cursor: none; }
         button { outline: none; border: none; }
         .screen { display: none; height: 100vh; flex-direction: column; align-items: center; justify-content: center; position: relative; }
         .screen.active { display: flex; }
@@ -286,6 +288,19 @@
     </div>
 
     <script>
+        // Block edge swipe back/forward navigation
+        let touchStartX = 0
+        document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX }, { passive: true })
+        document.addEventListener('touchmove', e => {
+            const dx = Math.abs(e.touches[0].clientX - touchStartX)
+            if (touchStartX < 30 || touchStartX > window.innerWidth - 30 || dx > 50) {
+                e.preventDefault()
+            }
+        }, { passive: false })
+        // Block browser back button
+        history.pushState(null, '', location.href)
+        window.addEventListener('popstate', () => history.pushState(null, '', location.href))
+
         const API = '/api/kiosk'
         let selectedType = '', code = '', codeState = 'entry'
         let selectedCar = null, searchText = '', oskVisible = false
