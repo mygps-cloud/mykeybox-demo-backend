@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const config = require('./config')
 const { getDb } = require('./db/setup')
+const buzzer = require('./buzzer')
 
 const app = express()
 app.use(express.json())
@@ -41,6 +42,18 @@ async function start() {
     await driver.initialize()
     console.log(`[DRIVER] ${config.DRIVER} initialized (${config.DOOR_COUNT} doors)`)
 
+    // ── Buzzer: alarm on door open, stop on close ──
+    if (driver.onDoorChange !== undefined || config.DRIVER === 'cu48') {
+        driver.onDoorChange = (doorIndex, isClosed) => {
+            if (isClosed) {
+                buzzer.stopDoorAlarm(doorIndex)
+            } else {
+                buzzer.startDoorAlarm(doorIndex)
+            }
+        }
+        console.log('[BUZZER] Door alarm integration active')
+    }
+
     // Register API routes (driver is now ready)
     app.use('/api/kiosk', require('./routes/kiosk')(driver))
     app.use('/api/admin', require('./routes/admin')(driver))
@@ -54,6 +67,20 @@ async function start() {
             door_states: driver.getDoorStates(),
             uptime: process.uptime()
         })
+    })
+
+    // ── Beep test endpoint ──
+    app.get('/api/beep', async (req, res) => {
+        const { pattern, freq, duration } = req.query
+        if (pattern) {
+            await buzzer.play(pattern)
+            return res.json({ ok: true, pattern })
+        }
+        if (freq) {
+            await buzzer.beep(parseInt(freq) || 1000, parseInt(duration) || 500)
+            return res.json({ ok: true, freq, duration })
+        }
+        res.json({ patterns: Object.keys(buzzer.PATTERNS) })
     })
 
     app.listen(config.PORT, '0.0.0.0', () => {

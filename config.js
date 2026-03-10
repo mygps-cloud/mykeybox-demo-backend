@@ -3,7 +3,7 @@ module.exports = {
     DEVICE_NAME: process.env.DEVICE_NAME || 'DEMO-1',
 
     // Driver: 'simulator' | 'cu48' | 'modbus'
-    DRIVER: process.env.DRIVER || 'simulator',
+    DRIVER: process.env.DRIVER || 'cu48',
     DOOR_COUNT: parseInt(process.env.DOOR_COUNT || '4'),
 
     // Serial config (for cu48/modbus drivers)
