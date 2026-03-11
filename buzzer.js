@@ -1,4 +1,4 @@
-const { execFile } = require('child_process')
+const { execFile, exec } = require('child_process')
 
 const PATTERNS = {
     doorOpen: [
